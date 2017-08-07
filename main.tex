@@ -1,0 +1,84 @@
+\documentclass[12pt]{article}
+% pre\'ambulo
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,activeacute]{babel}
+\usepackage{mathtools}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usetikzlibrary{arrows,positioning}
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    %Define style for boxes
+    punkt/.style={
+           rectangle,
+           rounded corners,
+           draw=black, very thick,
+           text width=5em,
+           minimum height=4em,
+           text centered},
+    % Define arrow style
+    pil/.style={
+           ->,
+           thick,
+           shorten <=2pt,
+           shorten >=2pt,}
+}
+\usepackage[style=numeric-comp,backend=bibtex]{biblatex}
+\bibliography{refs.bib}
+
+\title{Dise'no y verificaci'on formal de programas moleculares en el modelo d'ebil de Amos}
+\author{Sergio Rodr\'iguez Calvo}
+\date{Septiembre de 2017}
+
+
+\begin{document}
+    \maketitle
+    \thispagestyle{empty}
+    \begin{center}
+      Departamento de Ciencias de la Computaci\'on e
+      Inteligencia Artificial \\
+      Universidad de Sevilla
+      \end{center}
+  % cuerpo del documento
+  % abstract
+  \bf{Abstract. }\rm
+    \emph{En el presente trabajo se pretende estudiar el dise'no y la verificaci'on formal
+    de dos programas moleculares en el modelo d'ebil de Amos que resuelven el problema de la generaci'on
+    de permutaciones; y el problema del camino hamiltoniano en su versi'on dirigida y sin
+    nodos distinguidos.}
+
+\section{Introducci'on}
+
+Hace algunas d'ecadas, los investigadores comenzaron a ver la analog'ia existente entre algunos
+procedimientos matem'aticos y ciertos procesos biol'ogicos. Es decir, las c'elulas de los organismos
+vivos, aplicando una serie de operaciones bioqu'imicas sobre una cadena de 'acido desoxirribonucleico (ADN),
+realizan operaciones que son computables, tales como, la suma o la resta.
+
+A ra'iz de el hallazgo de los l'imites en la miniaturalizaci'on de los componentes de tecnolog'ia electr'onica (chips)
+empleados en los ordenadores modernos, surgen estudios y avances en cuanto a utilizar computaci'on
+molecular como alternativa, ya que todo parece indicar que con suficientes avances en este campo
+se puede aprovechar la miniaturizaci'on obtenida por procesos biol'ogicos y evolutivos, as'i como, el
+menor consumo energ'etico de una c'elula frente a un transistos electr'onico.
+
+Aunque en la actualidad a'un no se ha conseguido que sean pr'acticos, parece existir cierta esperanza y
+cierta posibilidad, de que con el suficiente avance se pueda utilizar de manera pr'actica. De este modo,
+obtener resultado en un tiempo menor, utilizando para ello espacio exponencial.
+
+De hecho, en la d'ecada de los noventa se mostr'o que era posible atacar la resolubilidad de un problemas
+matem'aticos dif'iciles, es decir, aquellos problemas que necesitan una cantidad exponencial de recursos
+en el tama'no de dato de entrada.
+
+\section{Modelo d'ebil de Amos}
+
+\section{Problema de la generaci'on de permutaciones}
+
+\section{Problema del camino hamiltoniano en versi'on dirigida sin nodos distinguidos}
+
+% bibliography
+\printbibliography
+
+\end{document}
