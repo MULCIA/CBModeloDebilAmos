@@ -30,7 +30,7 @@
 \usepackage[style=numeric-comp,backend=bibtex]{biblatex}
 \bibliography{refs.bib}
 
-\title{Dise'no y verificaci'on formal de programas moleculares en el modelo d'ebil de Amos}
+\title{Dise\~no y verificaci\'on formal de programas moleculares en el modelo d\'ebil de Amos}
 \author{Sergio Rodr\'iguez Calvo}
 \date{Septiembre de 2017}
 
@@ -49,7 +49,8 @@
     \emph{En el presente trabajo se pretende estudiar el dise'no y la verificaci'on formal
     de dos programas moleculares en el modelo d'ebil de Amos que resuelven el problema de la generaci'on
     de permutaciones; y el problema del camino hamiltoniano en su versi'on dirigida y sin
-    nodos distinguidos.}
+    nodos distinguidos. Consiste en un trabajo desarrollado como trabajo final de la asignatura de
+    Computaci'on Bioinspirada y consiste en la reescritura de un apartado }
 
 \section{Introducci'on}
 
@@ -84,6 +85,64 @@ La computaci'on molecular cuenta con las siguientes ventajas:
 \end{itemize}
 
 \section{Modelo d'ebil de Amos}
+
+El Modelo d'ebil de Amos es uno de los modelos de computaci'on molecular sin memoria basados en ADN.
+Previamente, se describe brevemente el modelo abstracto de este tipo de computaci'on para entender mejor
+el modelo que se introducce en esta secci'on.
+
+Posteriormente, se resolveran dos problemas considerados dif'iciles, que son el problema de la generaci'on de
+permutaciones, as'i como, el problema del camino hamiltoniano, en concreto en su versi'on dirigida
+y sin nodos distinguidos.
+
+\subsection{Modelo abstracto de computaci'on molecular}
+
+La computaci'on molecular que se presenta es la que se realiza a trav'es del ADN. Por ello, se presenta una
+introducci'on breve para llegar a explicar completamente el modelo abstracto de computaci'on molecular.
+
+\subsubsection{Estructura del ADN}
+
+En primer lugar, el ADN es un polimero con estructura lineal formado por nucle'otidos. A su vez cada
+nucle'otido consta de:
+
+\begin{itemize}
+	\item Base nitrogenada, unido a un azucar a trav'es del carbono 1.
+	\item Un azucar de cinco 'atomos de carbono.
+	\item Un grupo hidroxilo (OH) unido al azucar por el carbono 3.
+	\item Un grupo fosfato (P) unido al azucar por el cabrono 5.
+\end{itemize}
+
+#TODO: Poner aqu'i imagen de la p'agina 6.
+
+El nucleotido se identifica con la base nitrogenada, existiendo cuatro tipos: adenina (A), citosina (C),
+guanina (G) y timina (T). La adenina y la guanina pertenecen al grupo de las purinas, y las otras dos
+al grupo de las piramidas.
+
+Estos nucleotidos pueden enlazarse a trav'es de dos tipos de enlaces, enlace fosfodieste, a trav'es
+la uni'on entre el grupo fosfato de un nucleotido con un grupo hidroxilo de otro. O, enlace de hidrogeno,
+que se realiza a trav'es de las bases.
+
+El enlace fosfoide permite crear cadenas simples que poseen dos extremos de comportamientos diferentes. El grupo
+de los extremos que queda disponible para continuar con nuevos enlaces dan una polaridad. Por tanto, tenemos dos
+polaridades diferentes. Direcci'on 5´ -> 3´ y 3´-> 5´. Por defecto, si no se indica nada, se trabaja con 5´ -> 3´
+y se notar'a #TODO poner aqu'i s'imbolo.
+
+El enlace de hidrogeno se rige por el principio de complementariedad, esto es, la adenina s'olo se
+puede unir con la timina, y viceversa, con s'olo dos puentes de hidr'ogeno. La citosina con la guanina,
+ y viceversa, con tres puentes de hidr'ogeno.
+
+ Combinando ambos tipos de enlaces se obtiene cadenas dobles, tambi'en llamado doble h'elice. Las dos cadenas
+ se alinean de forma antiparalela, esto es, una en direcci'on 5´ -> 3´ y la otra en 3´-> 5´.
+
+#TODO: Poner aqu'i imagen de la p'agina 8 con la d'oble h'elice.
+
+\subsubsection{Operaciones con cadenas de ADN}
+
+A continuaci'on se describe un ejemplo de operaci'on con cadenas de ADN con detalle, y se indicar'a s'olamente
+el resto como breve descripci'on.
+
+
+
+\subsection{Modelo de Amos}
 
 \section{Problema de la generaci'on de permutaciones}
 
