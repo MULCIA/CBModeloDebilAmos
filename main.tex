@@ -49,15 +49,10 @@
     \emph{En el presente trabajo se pretende estudiar el dise'no y la verificaci'on formal
     de dos programas moleculares en el modelo d'ebil de Amos que resuelven el problema de la generaci'on
     de permutaciones; y el problema del camino hamiltoniano en su versi'on dirigida y sin
-    nodos distinguidos. Consiste en un trabajo desarrollado como trabajo final de la asignatura de
-    Computaci'on Bioinspirada y consiste en la reescritura de un apartado del trabajo original
-    Computaci'on molecular sin memoria basada en ADN de Mario de Jes'us P'erez Jim'enez, profesor
-    del Departamento de Ciencias de la Computaci'on e Inteligencia Artificial de la
-    Universidad de Sevilla, as'i como, profesor de la asignatura en cuesti'on.
-    En este trabajo por tanto, se realiza un resumen en los primeros cap'itulos obtenido a partir
-    del trabajo original, y que se puede encontrar su referencia en el apartado correspondiente
-    al final de este documento. Los 'ultimos dos cap'itulos contienen el resultado realizado con el
-    fin de cumplir con el objetivo de la asignatura. }
+    nodos distinguidos. En concreto, se centra en reescribir, as'i como, completar algunos detalles
+    de las demostraciones, que se encuentran el trabajo original \cite{Mario-deJesus}.
+    El desarrollo de este trabajo tiene como objetivo ser entregado como trabajo final de la asignatura de
+    Computaci'on Bioinspirada.}
 
 \section{Introducci'on}
 
@@ -77,7 +72,7 @@ En la propia d'ecada de los cincuenta ya se introdujo el concepto te'orico de co
 En los ordenadores convencionales la paralelizaci'on y la miniturizaci'on son un objetivo importante, y la
 computaci'on molecular puede suponer un paso m'as en este sentido.
 
-Sobre todo, a partir de que en la d'ecada de los ochenta se demostrara que existia un limite en la potencia
+Sobre todo, a partir de que en la d'ecada de los ochenta cuando se demostr'o la existencia un l'imite en la potencia
 de c'alculo y en la miniturizaci'on de los componentes electr'onicos empleados en los ordenadores convencionales.
 
 La computaci'on molecular cuenta con las siguientes ventajas:
@@ -93,77 +88,17 @@ La computaci'on molecular cuenta con las siguientes ventajas:
 
 \section{Modelo d'ebil de Amos}
 
-El Modelo d'ebil de Amos es uno de los modelos de computaci'on molecular sin memoria basados en ADN.
-Previamente, se describe brevemente el modelo abstracto de este tipo de computaci'on para entender mejor
-el modelo que se introducce en esta secci'on.
+Antes de introducir el Modelo d'ebil de Amos, se necesita previamente conocer los detalles y principios
+de la computación molecular, as'i como, los distintos modelos previos a este, los cuales se pueden encontrar
+en el documento original del profesor del departamento de Ciencias de la Computaci'on de la Universidad
+de Sevilla, Mario de Jes'us P'erez Jim'enez \cite{Mario-deJesus}.
 
-Posteriormente, se resolveran dos problemas considerados dif'iciles, que son el problema de la generaci'on de
-permutaciones, as'i como, el problema del camino hamiltoniano, en concreto en su versi'on dirigida
-y sin nodos distinguidos.
+El Modelo d'ebil de Amos consiste en modelo de computaci'on basada en ADN, esto es, que utiliza como sustrato
+computacional el ADN y en el cual se realizan filtrados sobre el sustrato anterior. En este caso, no existe
+memoria de acceso aleatorio como en la computaci'on cl'asica. Para almacenar el sustrato, al igual que en otros
+modelos de computaci'on molecular, se utiliza un tubo de ensayo que contendr'a la muestra.
 
-\subsection{Modelo abstracto de computaci'on molecular}
-
-La computaci'on molecular que se presenta es la que se realiza a trav'es del ADN. Por ello, se presenta una
-introducci'on breve para llegar a explicar completamente el modelo abstracto de computaci'on molecular.
-
-\subsubsection{Estructura del ADN}
-
-En primer lugar, el ADN es un polimero con estructura lineal formado por nucle'otidos. A su vez cada
-nucle'otido consta de:
-
-\begin{itemize}
-	\item Base nitrogenada, unido a un azucar a trav'es del carbono 1.
-	\item Un azucar de cinco 'atomos de carbono.
-	\item Un grupo hidroxilo (OH) unido al azucar por el carbono 3.
-	\item Un grupo fosfato (P) unido al azucar por el cabrono 5.
-\end{itemize}
-
-#TODO: Poner aqu'i imagen de la p'agina 6.
-
-El nucleotido se identifica con la base nitrogenada, existiendo cuatro tipos: adenina (A), citosina (C),
-guanina (G) y timina (T). La adenina y la guanina pertenecen al grupo de las purinas, y las otras dos
-al grupo de las piramidas.
-
-Estos nucleotidos pueden enlazarse a trav'es de dos tipos de enlaces, enlace fosfodieste, a trav'es
-la uni'on entre el grupo fosfato de un nucleotido con un grupo hidroxilo de otro. O, enlace de hidrogeno,
-que se realiza a trav'es de las bases.
-
-El enlace fosfoide permite crear cadenas simples que poseen dos extremos de comportamientos diferentes. El grupo
-de los extremos que queda disponible para continuar con nuevos enlaces dan una polaridad. Por tanto, tenemos dos
-polaridades diferentes. Direcci'on 5´ -> 3´ y 3´-> 5´. Por defecto, si no se indica nada, se trabaja con 5´ -> 3´
-y se notar'a #TODO poner aqu'i s'imbolo.
-
-El enlace de hidrogeno se rige por el principio de complementariedad, esto es, la adenina s'olo se
-puede unir con la timina, y viceversa, con s'olo dos puentes de hidr'ogeno. La citosina con la guanina,
- y viceversa, con tres puentes de hidr'ogeno.
-
- Combinando ambos tipos de enlaces se obtiene cadenas dobles, tambi'en llamado doble h'elice. Las dos cadenas
- se alinean de forma antiparalela, esto es, una en direcci'on 5´ -> 3´ y la otra en 3´-> 5´.
-
-#TODO: Poner aqu'i imagen de la p'agina 8 con la d'oble h'elice.
-
-\subsubsection{Operaciones con cadenas de ADN}
-
-A continuaci'on se describe brevemente algunas de las posibles operaciones con cadenas de ADN, lo que permitir'a
-usar esas operaciones qu'imicas para hacer operaciones matem'aticas:
-
-\begin{itemize}
-    \item Desnaturalizaci'on, proceso que permite separar la doble h'elice en dos cadenas simples.
-    \item Renaturalizaci'on, proceso que permite unir dos candenas simples en una doble h'elice.
-    \item Medir la longitud de una mol'ecula, proceso que se consigue utilizando la t'ecnica de electroferesis
-    en gel. Esto es utilizar la propiedad que tienen dichas moleculas por la que tienen una carga el'ectrica
-    negativa proporcional a su longitud. Poner en un gel dicha molecula y aplicar una carga positiva
-    permite discriminar (gracias al gel) seg'un la longitud que se desea.
-    \item Extracci'on, proceso por el cual se selecciona de un tubo que contiene una soluci'on con cadenas
-    seleccionar aquellas cadenas simples que contengan una determinada subcadena.
-    \item Alargar y copiar una cadenas,
-\end{itemize}
-
-Existen otras operaciones, tales como, s'intesis de una cadena, acortar cadenas, cortar cadenas, etc.
-
-\subsubsection{Exprimento de Adelman}
-
-\subsection{Modelo de Amos}
+Dicho tubo es un multiconjunto finito de cadenas del alfabeto \sum_{ADN} = \{A, C, G, T\}.
 
 \section{Problema de la generaci'on de permutaciones}
 
