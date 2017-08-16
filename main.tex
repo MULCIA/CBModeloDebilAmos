@@ -136,7 +136,20 @@ aplicaci'on biyectiva del conjunto finito \{1,...,n\} en s'i mismo.
 Una vez tenemos definido qu'e es una permutaci'on vamos a introducir el problema de generaci'on de
 permutaciones, que consiste en, dado un n'umero natural, $n \geq 2$, generar todas las permutaciones de orden n.
 
+En primer lugar, hay que definir el modelo mediante el cual se pretende representar el problema con los
+elementos que tenemos en la computaci'on molecular. Esto es, definir por un lado el alfabeto:
+$ \sum = \{(p_{i},c_{j}) : 1 \leq i,j \leq n\} $, donde $p_{i}$ y $c_{j}$ son dos oligos que codificar'an
+respectivamente la posici'on $i$-'esima en la permutaci'on y el n'umero \textit{j}.
 
+A continuaci'on, se necesita definir el tubo de entrada, $T_{0}$, para poder comenzar el experimento, es decir,
+aplicar las operaciones abstractas de la secci'on anterior seg'un un determinado algoritmo. En este caso,
+use trata de un multiconjunto de entrada con un n'umero finito de moleculas y que codifican todas las
+posibles sucesiones para una longitud \textit{n}. Formalmente ser'ia:
+
+\begin{equation*}
+  T_{0} = \{\{ \sigma \in \sum_{}^{n} : \exists x_{1},..., \exists x_{n} (\sigma = (p_{1},x_{1}),
+  (p_{2},x_{2}),..., (p_{n},x_{n})) \}\}
+\end{equation*}
 
 \subsection{Problema del camino hamiltoniano en versi'on dirigida sin nodos distinguidos}
 
