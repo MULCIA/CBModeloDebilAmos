@@ -100,27 +100,43 @@ modelos de computaci'on molecular, se utiliza un tubo de ensayo que contendr'a l
 
 Dicho tubo es un multiconjunto finito de cadenas del alfabeto $\sum_{ADN} = \{A, C, G, T\}$.
 
-A nivel abstracto, las operaciones que se pueden realizar sobre los tubos son las siguientes:
+A nivel abstracto, en el Modelo d'ebil de Amos las operaciones que se pueden realizar sobre los tubos
+son las siguientes:
 
 \begin{itemize}
-    \item Quitar ...
-    \item Copiar ...
-    \item Uni'on ...
-    \item Selecci'on ...
+    \item \textbf{Quitar (\textit{T},\{$ \gamma_{1},...,\gamma_{n} $\}):} Dado un tubo, \textit{T}, y un n'umero finito
+    de cadenas, $ \gamma_{1},...,\gamma_{n} $, de $ \sum $, devuelve el tubo obtenido de T eliminando
+    todas aquellas cadenas que contengan, al menos, una ocurrencia de alguna de las cadenas
+    $ \gamma_{1},...,\gamma_{n} $.
+    \item \textbf{Copiar (\textit{T},\{$ \textit{T}_{1},...,\textit{T}_{n} $\}):} Dado un tubo, \textit{T}, y un numero
+    natural $ \textit{k} \geq 2 $, devuelve \textit{k} tubos, $\textit{T}_{1},...,\textit{T}_{n}$, que son
+    copias exactas de \textit{T}.
+    \item \textbf{Uni'on (\{$ \textit{T}_{1},...,\textit{T}_{n} $\}):} Dados los tubos
+    $\textit{T}_{1},...,\textit{T}_{n}$, con $ \textit{k} \geq 2 $, devuelve un tubo \textit{T}, cuyo contenido
+    es la uni'on de los tubos $\textit{T}_{1},...,\textit{T}_{n}$ como multiconjuntos.
+    \item \textbf{Selecci'on (\textit{T}):} Dado un tubo, \textit{T}, selecciona aleatoriamente un elemento de \textit{T}
+    en el caso en que $\textit{T} \neq \emptyset$; en caso contratio, devuelve \textbf{NO}.
 \end{itemize}
 
-Estas operaciones ser'an instrucciones moleculares primitivas del modelo d'ebil.
+Estas operaciones ser'an instrucciones moleculares primitivas del modelo d'ebil. Adem'as, cabe destacar que
+en este modelo la 'unica operaci'on molecular que implementa paralelismo masico es \textit{quitar}.
 
 El primer problema, el de la generaci'on de permitaciones, ser'a abordado previo al problema del camino hamiltoniano
 , ya que, ser'a necesario para su resoluci'on.
 
 \subsection{Problema de la generaci'on de permutaciones}
 
+En esta secci'on se muestra como abordar desde el punto de vista de la computaci'on molecular la resolubilidad
+del problema de la generaci'on de permutaciones. Antes, se define en qu'e consiste una permutaci'on para a
+continuaci'on abordar el problema de la generaci'on de las mismas.
+
 Una permutaci'on la definimos como dado un numero natural, $n \geq 1$, una permutaci'on de orden n es una
 aplicaci'on biyectiva del conjunto finito \{1,...,n\} en s'i mismo.
 
 Una vez tenemos definido qu'e es una permutaci'on vamos a introducir el problema de generaci'on de
-permutaciones: Dado un n'umero natural, n >= 2, generar todas las permutaciones de orden n.
+permutaciones, que consiste en, dado un n'umero natural, $n \geq 2$, generar todas las permutaciones de orden n.
+
+
 
 \subsection{Problema del camino hamiltoniano en versi'on dirigida sin nodos distinguidos}
 
