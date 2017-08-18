@@ -4,6 +4,8 @@
 \usepackage[T1]{fontenc}
 \usepackage[spanish,activeacute]{babel}
 \usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{url}
 \usepackage{tikz}
 \usepackage{graphicx}
@@ -135,6 +137,12 @@ continuaci'on abordar el problema de la generaci'on de las mismas.
 Una permutaci'on la definimos como \textit{dado un numero natural, $n \geq 1$, una permutaci'on de orden n es una
 aplicaci'on biyectiva del conjunto finito \{1,...,n\} en s'i mismo}.
 
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{permutaciones}
+\caption{Ejemplo de permutaci'on considerada como funci'on biyectiva.}
+\end{figure}
+
 Una vez tenemos definido qu'e es una permutaci'on vamos a introducir el problema de generaci'on de
 permutaciones, que consiste en, \textit{dado un n'umero natural, $n \geq 2$, generar todas las permutaciones
  de orden n}.
@@ -150,7 +158,7 @@ use trata de un multiconjunto de entrada con un n'umero finito de moleculas y qu
 posibles sucesiones para una longitud \textit{n}. Formalmente ser'ia:
 
 \begin{equation*}
-  T_{0} = \{\{ \sigma \in \sum_{}^{n} : \exists x_{1},..., \exists x_{n} (\sigma = (p_{1},x_{1}),
+  T_{0} = \{\{ \sigma \in \sum_{}^n : \exists x_{1},..., \exists x_{n} (\sigma = (p_{1},x_{1}),
   (p_{2},x_{2}),..., (p_{n},x_{n})) \}\}
 \end{equation*}
 
@@ -166,10 +174,15 @@ que contiene la codificaci'on de todas las posibles soluciones de longitud $ n $
         \begin{equation*}
             \forall r > 1 ( (\sigma)_{1} \neq (\sigma)_{r} )
         \end{equation*}
+           Esto es, para todas las posiciones, $r$, mayores que 1, devolver todas aquellas codificaciones, tal que,
+           el n'umero que ocupa la posici'on $r$-'esima sea distinto de el n'umero de la primera posici'on.
      \item Un segundo filtro respecto del paso anterior donde se seleccionan las moleculas, $ \sigma $, tal que:
      \begin{equation*}
          \forall r > 2 ( (\sigma)_{1} \neq (\sigma)_{r} \land (\sigma)_{2} \neq (\sigma)_{r} )
      \end{equation*}
+           Esto es, del conjunto resultante del paso anterior, para todas las posiciones, $r$, mayores que dos,
+           devolver todas aquellas codificaciones, tal que, el n'umero que ocupa la posici'on $r$-'esima sea distinto
+            de el n'umero de la posici'on primera y de la posici'on segunda a la vez.
  \end{itemize}}
 
  La notaci'on, $ (\sigma)_{r} $, representa el n'umero que ocupa la posici'on \textit{r-'esima} en la
@@ -188,10 +201,35 @@ de entrada, es el siguiente:
         \For {$i\leftarrow1$ in $n$}
             \State quitar($T_{i}, \{p_{j}r : r \neq i\} \cup \{p_{k}i : j + 1 \leq k \leq n\} $)
         \EndFor
-        \State uni'oon($\{T_{1},...,T_{n}\},T_{0}$)
+        \State uni'on($\{T_{1},...,T_{n}\},T_{0}$)
     \EndFor
     \Return $T_{0}$
 \end{algorithmic}
+
+Este algoritmo presenta una complejidad $O(n^2)$, es decir, orden cuadr'atico en $n$. Por tanto, el n'umero de
+operaciones moleculares es $n^2$.
+
+\subsubsection{Verificaci'on formal del programa molecular}
+
+Para realizar la verificaci'on formal es necesario etiquetar cada uno de los tubos que se van a obtener
+a los largo del algoritmo descrito anteriormente. Por tanto, el algoritmo va a ser reescrito de la
+siguiente forma:
+
+\begin{algorithmic}
+    \Require $T_{0}$
+    \For {$j\leftarrow1$ in $n - 1$}
+        \State copiar($T^{j-1}_{0}, \{T^{j}_{1},...,T^{j}_{n}\}$)
+        \For {$i\leftarrow1$ in $n$}
+            \State $\bar{T}^{j}_{i}$ \leftarrow quitar($T^{j}_{i}, \{p_{j}r : r \neq i\} \cup \{p_{k}i : j + 1 \leq k \leq n\} $)
+        \EndFor
+        \State uni'on($\{\bar{T}_{1},...,\bar{T}_{n}\},T^{j}$)
+    \EndFor
+    \Return $T_{n - 1}$
+\end{algorithmic}
+
+Antes de continuar, hay que aclarar la notaci'on a emplear a partir de aqu'i. $A_{\sigma,j}$ ser'a el conjunto
+$\{\sigma_{1},...,\sigma_{j}\}$, es decir, n'umero en cada posici'on $j$-'esima, para $(1 \leq j \leq n)$, en cada
+$\sigma \in T_{0}$.
 
 \subsection{Problema del camino hamiltoniano en versi'on dirigida sin nodos distinguidos}
 
