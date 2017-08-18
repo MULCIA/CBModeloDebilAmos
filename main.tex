@@ -7,6 +7,8 @@
 \usepackage{url}
 \usepackage{tikz}
 \usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
 \graphicspath{ {images/} }
 \usetikzlibrary{arrows,positioning}
 \tikzset{
@@ -130,11 +132,12 @@ En esta secci'on se muestra como abordar desde el punto de vista de la computaci
 del problema de la generaci'on de permutaciones. Antes, se define en qu'e consiste una permutaci'on para a
 continuaci'on abordar el problema de la generaci'on de las mismas.
 
-Una permutaci'on la definimos como dado un numero natural, $n \geq 1$, una permutaci'on de orden n es una
-aplicaci'on biyectiva del conjunto finito \{1,...,n\} en s'i mismo.
+Una permutaci'on la definimos como \textit{dado un numero natural, $n \geq 1$, una permutaci'on de orden n es una
+aplicaci'on biyectiva del conjunto finito \{1,...,n\} en s'i mismo}.
 
 Una vez tenemos definido qu'e es una permutaci'on vamos a introducir el problema de generaci'on de
-permutaciones, que consiste en, dado un n'umero natural, $n \geq 2$, generar todas las permutaciones de orden n.
+permutaciones, que consiste en, \textit{dado un n'umero natural, $n \geq 2$, generar todas las permutaciones
+ de orden n}.
 
 En primer lugar, hay que definir el modelo mediante el cual se pretende representar el problema con los
 elementos que tenemos en la computaci'on molecular. Esto es, definir por un lado el alfabeto:
@@ -150,6 +153,45 @@ posibles sucesiones para una longitud \textit{n}. Formalmente ser'ia:
   T_{0} = \{\{ \sigma \in \sum_{}^{n} : \exists x_{1},..., \exists x_{n} (\sigma = (p_{1},x_{1}),
   (p_{2},x_{2}),..., (p_{n},x_{n})) \}\}
 \end{equation*}
+
+En la f'ormula anterior, $ \sigma $, es una codificaci'on concreta, tal que,
+$ \sigma = p_{1}x_{1}...p_{n}x_{n} $.
+
+La idea aqu'i es generar todas las posibles permutaciones, utilizando un tubo inicial, $ T_{0} $,
+que contiene la codificaci'on de todas las posibles soluciones de longitud $ n $. El programa sigue los
+ siguientes pasos hasta $ n - 1 $ veces:
+
+ \begin{itemize}
+     \item Un primer filtro sobre $ T_{0} $ para seleccionar las moleculas, $ \sigma $, tal que:
+        \begin{equation*}
+            \forall r > 1 ( (\sigma)_{1} \neq (\sigma)_{r} )
+        \end{equation*}
+     \item Un segundo filtro respecto del paso anterior donde se seleccionan las moleculas, $ \sigma $, tal que:
+     \begin{equation*}
+         \forall r > 2 ( (\sigma)_{1} \neq (\sigma)_{r} \land (\sigma)_{2} \neq (\sigma)_{r} )
+     \end{equation*}
+ \end{itemize}}
+
+ La notaci'on, $ (\sigma)_{r} $, representa el n'umero que ocupa la posici'on \textit{r-'esima} en la
+ sucesi'on de longitud $ n $ codificada por $ \sigma $. Es decir, $ (\sigma)_{r} = x_{r} $ para todo $ r $, tal que
+ $ (1 \leq r \leq n) $.
+
+\subsubsection{Dise'no del programa molecular}
+
+El algoritmo a seguir en el programa molecular, basado en la idea de filtrar sobre un determinado tubo $ T_{0} $
+de entrada, es el siguiente:
+
+\begin{algorithmic}
+    \Require $T_{0}$
+    \For {$j\leftarrow1$ in $n - 1$}
+        \State copiar($T_{0}, \{T_{1},...,T_{n}\}$)
+        \For {$i\leftarrow1$ in $n$}
+            \State quitar($T_{i}, \{p_{j}r : r \neq i\} \cup \{p_{k}i : j + 1 \leq k \leq n\} $)
+        \EndFor
+        \State uni'oon($\{T_{1},...,T_{n}\},T_{0}$)
+    \EndFor
+    \Return $T_{0}$
+\end{algorithmic}
 
 \subsection{Problema del camino hamiltoniano en versi'on dirigida sin nodos distinguidos}
 
