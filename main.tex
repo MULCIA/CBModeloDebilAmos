@@ -186,7 +186,7 @@ que contiene la codificaci'on de todas las posibles soluciones de longitud $ n $
  \end{itemize}}
 
  La notaci'on, $ (\sigma)_{r} $, representa el n'umero que ocupa la posici'on \textit{r-'esima} en la
- sucesi'on de longitud $ n $ codificada por $ \sigma $. Es decir, $ (\sigma)_{r} = x_{r} $ para todo $ r $, tal que
+ sucesi'on de longitud $ n $ codificada por $ \sigma $. Es decir, $ (\sigma)_{r} = x_{r} $ para todo $ r $
  $ (1 \leq r \leq n) $.
 
 \subsubsection{Dise'no del programa molecular}
@@ -229,7 +229,25 @@ siguiente forma:
 
 Antes de continuar, hay que aclarar la notaci'on a emplear a partir de aqu'i. $A_{\sigma,j}$ ser'a el conjunto
 $\{\sigma_{1},...,\sigma_{j}\}$, es decir, n'umero en cada posici'on $j$-'esima, para $(1 \leq j \leq n)$, en cada
-$\sigma \in T_{0}$.
+$\sigma \in T_{0}$. Esto es, un conjunto que contiene todos los n'umeros que contienen una determinada codificaci'on, $\sigma$,
+desde 1 hasta la posici'on j en cada caso.
+
+Esta notaci'on que se acaba de describir ser'a necesaria para la correci'on formal del programa que se
+acaba de reescribir, y que se utiliza en la siguiente formula:
+
+\begin{equation*}
+  \theta(j) \equiv \forall \sigma \in T^{j} (|A_{\sigma,j}| = j \land \forall r ( j + 1 \leq r \leq n \rightarrow
+  (\sigma)_{r} \notin A_{\sigma,j} ))
+\end{equation*}
+
+La formula, $\theta(j)$, expresa que toda molecula del tubo $T^{j}$ codifica una sucesi'on de longitud $n$ tal que
+los $j$ primeros t'erminos son distintos entre s'i y, adem'as, distintos de los restantes t'erminos de la sucesi'on.
+
+A continuaci'on, se van a exponer una serie de teoremas con los que se pretende realizar la verificaci'on formal,
+tomando el algoritmo que se ha reescrito en este apartado.
+
+\textbf{Teorema 1.1.} $\forall j (1 \leq j \leq n-1 \to \theta(j))$. Es decir, la formula $\theta$ es un invariante del
+bucle principal. Esto es, que $\theta$ no cambia a lo largo de las transformaciones que sufre el tubo en el bucle principal.
 
 \subsection{Problema del camino hamiltoniano en versi'on dirigida sin nodos distinguidos}
 
