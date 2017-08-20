@@ -282,7 +282,40 @@ y una notaci'on parecida. Esto es:
   (p_{2},x_{2}),..., (p_{n},x_{n})) \}\}
 \end{equation*}
 
-En este caso, la notaci'on es la siguiente: 
+En este caso, la notaci'on es la siguiente: si se tiene $\sigma = p_{1}x_{1}p_{2}x_{2}...p_{n}x_{n} \in T_{0}$, entonces
+para cada $r$ $(1 \leq r \leq n)$ se notar'a
+$(\sigma)_{r} = x_{r}$ y $\sigma_{r} = ((\sigma)_{1},(\sigma)_{2},...,(\sigma)_{r})$. Es decir, si $\sigma$ codifica un
+camino del grafo, entonces $x_{r}$, de $\sigma_{r} = (x_{1},x_{2},...,x_{r})$, ser'a el nodo $r$-'esimo del camino.
+
+Hay que tener en cuenta que si $\sigma$ codifica una determinada permutaci'on de orden $n$ y, adem'as, codifica
+un camino del grafo, 'este ser'a hamiltoniano.
+
+Los pasos a seguir para resolver este problema, partiendo de un tubo inicial $T_{0}$ con todas las posibles
+permutaciones de orden $n$, e iterando $n - 1$ veces, son los siguientes:
+
+\begin{itemize}
+    \item Se seleccionan las mol'eculas, $\sigma$, tales que $\sigma_{2}$ es un camino de $G$.
+    \item De 'estas, se seleccionan las moleculas, $\sigma$, tales que $\sigma_{3}$ es un camino de $G$,
+    verificando la condici'on $((\sigma)_{2},(\sigma)_{3} \in E)$.
+\end{itemize}}
+
+El algoritmo ser'a el siguiente:
+
+\begin{algorithmic}
+    \Require $T_{0}$
+    \For {$i\leftarrow1$ in $n - 1$}
+        \State $T_{0} \leftarrow quitar(T_{0}, \{jp_{i+1}k : (j,k) \notin E\})$
+    \EndFor
+    \State $seleccionar(T_{0})$
+\end{algorithmic}
+
+#TODO: Explicar.
+
+\subsubsection{Verificaci'on formal del programa molecular}
+
+Para realizar la verificaci'on formal es necesario etiquetar cada uno de los tubos que se van a obtener
+a los largo del algoritmo descrito anteriormente. Por tanto, el algoritmo va a ser reescrito de la
+siguiente forma:
 
 % bibliography
 \printbibliography
