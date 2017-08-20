@@ -309,13 +309,35 @@ El algoritmo ser'a el siguiente:
     \State $seleccionar(T_{0})$
 \end{algorithmic}
 
-#TODO: Explicar.
+La complejidad de este algoritmo es $O(n)$, es decir, tiene un orden de complejidad lineal.
+
+#TODO: Explicar el algoritmo
 
 \subsubsection{Verificaci'on formal del programa molecular}
 
 Para realizar la verificaci'on formal es necesario etiquetar cada uno de los tubos que se van a obtener
 a los largo del algoritmo descrito anteriormente. Por tanto, el algoritmo va a ser reescrito de la
 siguiente forma:
+
+\begin{algorithmic}
+    \Require $T_{0}$
+    \For {$i\leftarrow1$ in $n - 1$}
+        \State $T_{i} \leftarrow quitar(T_{i-1}, \{jp_{i+1}k : (j,k) \notin E\})$
+    \EndFor
+    \State $seleccionar(T_{n-1})$
+\end{algorithmic}
+
+Para poder realizar la verificaci'on formal se va considerar la siguiente f'ormula:
+
+\begin{equation*}
+  \theta(i) \equiv \forall \sigma \in T_{i-1} \forall r (1 \leq r \leq i \to ((\sigma)_{r},(\sigma)_{r+1}) \in E)
+\end{equation*}
+
+Esta f'ormula, $\theta(i)$, viene a decir que para toda molecula $\sigma$ del tubo $T_{i-1}$ se verifica que
+$\sigma_{i}$ es un camino del grafo $G$.
+
+A continuaci'on, se van a exponer una serie de teoremas con los que se pretende realizar la verificaci'on formal,
+tomando el algoritmo que se ha reescrito en este apartado.
 
 % bibliography
 \printbibliography
