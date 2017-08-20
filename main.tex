@@ -147,6 +147,8 @@ Una vez tenemos definido qu'e es una permutaci'on vamos a introducir el problema
 permutaciones, que consiste en, \textit{dado un n'umero natural, $n \geq 2$, generar todas las permutaciones
  de orden n}.
 
+\subsubsection{Dise'no del programa molecular}
+
 En primer lugar, hay que definir el modelo mediante el cual se pretende representar el problema con los
 elementos que tenemos en la computaci'on molecular. Esto es, definir por un lado el alfabeto:
 $ \sum = \{(p_{i},c_{j}) : 1 \leq i,j \leq n\} $, donde $p_{i}$ y $c_{j}$ son dos oligos que codificar'an
@@ -188,8 +190,6 @@ que contiene la codificaci'on de todas las posibles soluciones de longitud $ n $
  La notaci'on, $ (\sigma)_{r} $, representa el n'umero que ocupa la posici'on \textit{r-'esima} en la
  sucesi'on de longitud $ n $ codificada por $ \sigma $. Es decir, $ (\sigma)_{r} = x_{r} $ para todo $ r $
  $ (1 \leq r \leq n) $.
-
-\subsubsection{Dise'no del programa molecular}
 
 El algoritmo a seguir en el programa molecular, basado en la idea de filtrar sobre un determinado tubo $ T_{0} $
 de entrada, es el siguiente:
@@ -247,13 +247,42 @@ A continuaci'on, se van a exponer una serie de teoremas con los que se pretende 
 tomando el algoritmo que se ha reescrito en este apartado.
 
 \textbf{Teorema 1.1.} $\forall j (1 \leq j \leq n-1 \to \theta(j))$. Es decir, la formula $\theta$ es un invariante del
-bucle principal. Esto es, que $\theta$ no cambia a lo largo de las transformaciones que sufre el tubo en el bucle principal. 
+bucle principal. Esto es, que $\theta$ no cambia a lo largo de las transformaciones que sufre el tubo en el bucle principal.
 
 \subsection{Problema del camino hamiltoniano en versi'on dirigida sin nodos distinguidos}
+
+En este secci'on se muestra como abordar desde el punto de vista de la computaci'on molecular la resolubilidad
+del problema del camino hamiltoniano en su versi'on digidia y sin nodos distinguidos.
 
 El problema del camino hamiltoniano en su versi'on dirigida y sin nodos distinguidos consiste en
 dado un grafo dirigido, determinar si existe un camino simple que pasa por todos los nodos del grafo. O lo
 que es lo mismo, si el grafo posee un ciclo hamiltoniano.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{hamiltoniano}
+\caption{Ejemplo de camino hamiltoniano sobre un grafo.}
+\end{figure}
+
+\subsubsection{Dise'no del programa molecular}
+
+Para dar soluci'on a este problema en el modelo d'ebil de Amos, partimos de un $G = (V,E)$, tal que, $G$ es un grafo
+dirigido con $V = \{1,...,n\}$ nodos.
+
+Se debe definir en primer lugar el alfabeto $\sum = \{(p_{i},c_{j}) : 1 \leq i,j \leq n\}$. Donde, $p_{i}$ y $c_{j}$, son
+dos oligos que codifican respectivamente la posici'on $i$-'esima del camino, y el nodo $j$. Es decir, el nodo $j$ est'a
+en la posici'on $i$-'esima del camino.
+
+Como punto de partida, se necesita un tubo de ensayo inicial, $T_{0}$. Este problema necesita de todas las permutaciones
+de orden $n$, por tanto, el tubo de ensayo inicial es igual que el utilizado en el problema de la generaci'on de permutaciones
+y una notaci'on parecida. Esto es:
+
+\begin{equation*}
+  T_{0} = \{\{ \sigma \in \sum_{}^n : \exists x_{1},..., \exists x_{n} (\sigma = (p_{1},x_{1}),
+  (p_{2},x_{2}),..., (p_{n},x_{n})) \}\}
+\end{equation*}
+
+En este caso, la notaci'on es la siguiente: 
 
 % bibliography
 \printbibliography
