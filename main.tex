@@ -339,6 +339,18 @@ $\sigma_{i}$ es un camino del grafo $G$.
 A continuaci'on, se van a exponer una serie de teoremas con los que se pretende realizar la verificaci'on formal,
 tomando el algoritmo que se ha reescrito en este apartado.
 
+\textbf{Teorema 2.1.} $\forall i (2 \leq i \leq n \to \theta(i))$. Es decir, la f'ormula $\theta$ es un invariante del
+bucle principal.
+
+La demostraci'on, por inducci'on d'ebil sobre $i$ es: sea $\sigma \in T_{1}$. Puesto que
+$T_{1} = quitar(T_{0}, {jp_{2}k : (j,k) \notin E})$, se deduce que $((\sigma)_{1},(\sigma)_{2}) \in E$.
+
+Sea $i$ tal que $2 \leq i < n$ y supongamos cierto el resultado para $i$.
+
+Teniendo presente que $T_{i} = quitar(T_{i-1}, {jp_{i+1}k : (j,k) \notin E})$, resulta que
+$\sigma \in T_{i-1}$ y $((\sigma)_{i},(\sigma)_{i+1}) \in E$. De la hipotesis de inducci'on se deduce que
+$\forall r (1 \leq r < i \to ((\sigma)_{r},(\sigma)_{r+1}) \in E)$. Por tanto, $\sigma_{i+1}$ es un camino del grafo $G$.
+
 % bibliography
 \printbibliography
 
