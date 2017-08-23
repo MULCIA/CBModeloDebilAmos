@@ -351,6 +351,21 @@ Teniendo presente que $T_{i} = quitar(T_{i-1}, {jp_{i+1}k : (j,k) \notin E})$, r
 $\sigma \in T_{i-1}$ y $((\sigma)_{i},(\sigma)_{i+1}) \in E$. De la hipotesis de inducci'on se deduce que
 $\forall r (1 \leq r < i \to ((\sigma)_{r},(\sigma)_{r+1}) \in E)$. Por tanto, $\sigma_{i+1}$ es un camino del grafo $G$.
 
+\textbf{Corolario 6.6.} \textit{(Correci'on del programa) Toda mol'ecula del tubo de salida codifica un camino hamiltoniano
+del grafo G}.
+
+La demostraci'on es, sea $\sigma \in T_{n-1}$. Como la f'ormula $\theta(n)$ es verdadera resulta que
+$\forall r (1 \leq r < n \to ((\sigma)_{r},(\sigma)_{r+1}) \in E)$. Por tanto, $\sigma_{n}$ es un camino de $G$.
+Teniendo presente que la mol'ecula $\sigma$ codifica una permutaci'on de orden $n$, concluimor que $\sigma$ codifica
+un camino hamiltoniano del grafo $G$.
+
+Para establecer la completitud del programa molecular diseñado, consideremos la siguiente f'ormula:
+
+\begin{equation*}
+  \delta(i) \equiv \forall \sigma \in T_{0} ([\forall r (1 \leq r < n \to ((\sigma)_{r},(\sigma)_{r+1})
+   \in E)] \to \sigma \in T_{i-1})
+\end{equation*}
+
 % bibliography
 \printbibliography
 
