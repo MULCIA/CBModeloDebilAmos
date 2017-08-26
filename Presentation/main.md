@@ -52,6 +52,17 @@ Algunos ejemplos de operaciones son:
 
 # Diseño molecular
 
+- Alfabeto `(pi,cj)` para todo `i,j` entre `[1,n]`.
+- Dado un tubo de entrada `T0` que contiene todas las posibles sucesiones:
+```
+PARA j = 1 hasta n - 1 HACER:
+    copiar(T0,{T1,...,Tn})
+    PARA i = 1 hasta n HACER:
+        quitar(Ti, {})
+    union({T1,...,Tn}, T0)
+DEVOLVER T0
+```
+
 ---
 
 # Verificación formal
