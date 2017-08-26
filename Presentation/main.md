@@ -3,8 +3,8 @@ Computación molecular sin memoria basada en ADN
 
 #####  Problemas de generación de permutaciones y camino hamiltoniano
 
-###### Autor: Sergio Rodríguez Calvo 
-###### Asignatura: Computación Bioinspirada 
+###### Sergio Rodríguez Calvo, Septiembre 2017. 
+###### Computación Bioinspirada (MULCIA), Universidad de Sevilla.
 
 ---
 
