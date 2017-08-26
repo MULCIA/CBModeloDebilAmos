@@ -236,7 +236,7 @@ Esta notaci'on que se acaba de describir ser'a necesaria para la correci'on form
 acaba de reescribir, y que se utiliza en la siguiente formula:
 
 \begin{equation*}
-  \theta(j) \equiv \forall \sigma \in T^{j} (|A_{\sigma,j}| = j \land \forall r ( j + 1 \leq r \leq n \rightarrow
+  \theta(j) \equiv \forall \sigma \in T^{j} (|A_{\sigma,j}| = j \land \forall r ( j + 1 \leq r \leq n \longrightarrow
   (\sigma)_{r} \notin A_{\sigma,j} ))
 \end{equation*}
 
@@ -246,8 +246,50 @@ los $j$ primeros t'erminos son distintos entre s'i y, adem'as, distintos de los 
 A continuaci'on, se van a exponer una serie de teoremas con los que se pretende realizar la verificaci'on formal,
 tomando el algoritmo que se ha reescrito en este apartado.
 
-\textbf{Teorema 1.1.} $\forall j (1 \leq j \leq n-1 \to \theta(j))$. Es decir, la formula $\theta$ es un invariante del
+\textbf{Teorema 1.1.} $\forall j (1 \leq j \leq n-1 \longrightarrow \theta(j))$. Es decir, la formula $\theta$ es un invariante del
 bucle principal. Esto es, que $\theta$ no cambia a lo largo de las transformaciones que sufre el tubo en el bucle principal.
+
+La demostraci'on, por inducci'on d'ebil sobre $j$, es: sea $\sigma \in T^{1}$. Existe $x \in \{1,...,n\}$ tal que
+$\sigma \in \bar{T}_{x}^{1} = quitar(T_{x}^{1}, \{p_{1}r : r \neq x\} \cup \{p_{k}x : 2 \leq k \leq n\})$.
+
+Entonces $A_{\sigma,1} = \{(\sigma)_{1}\} = \{x\}$, es decir, $|A_{\sigma,1}| = 1$. Ademas, si $2 \leq k \leq n$, entonces
+$\sigma \in \bar{T}_{x}^{1} \Longrightarrow (\sigma)_{1} = x \land (\sigma)_{k} \neq x \Longrightarrow (\sigma)_{k}
+ \notin A_{\sigma,i}$
+
+Sea $j < n - 1 (j \geq 1)$ y supongamos que el resultado es cierto para $j$. Sea $\sigma \in T^{j+1}$. Sea
+$x \in \{1,...,n\}$ tal que $\sigma \in \bar{T}_{x}^{j+1} = quitar()$.
+
+Entonces, se verifica que $\sigma ...$.
+
+De la hipotesis de inducci'on se tiene que $|A_{\sigma,j}| = ...$.
+
+Teniendo presente ...
+
+Finalmente... Por tanto, ...
+
+\textbf{Corolario 1.1.} \textit{(Correci'on del programa) Toda mol'ecula del tubo de salida codifica una permutaci'on de
+orden n}.
+
+La demostraci'on es, sea $\sigma \in T^{n-1}$. Como la f'ormula $\theta(n-1)$ es verdadera resulta que
+$|A_{\sigma,n-1}| = n - 1 \land \forall r (n - 1 + 1 \leq r \leq n \longrightarrow (\sigma)_{r} \notin A_{\sigma,n-1})$.
+Como $A_{\sigma,n} = A_{\sigma,n-1} \cup \{(\sigma)_{n}\}$, concluimos que $|A_{\sigma,n}| = n$. Por tanto, la mol'ecula
+$\sigma$ codifica una permutaci'on de orden $n$.
+
+Para establecer la completitud del programa, se va a considerar la siguiente f'ormula:
+
+\begin{equation*}
+  \delta(j) \equiv \forall \sigma \in T^{0} (|A_{\sigma,n}| = n \longrightarrow \sigma \in T^{j})
+\end{equation*}
+
+Esto es, la f'ormula $\delta(j)$ expresa que toda mol'ecula del tubo $T^{i}$ codifica una sucesi'on de longitud $n$ tal que
+los $j$ primeros t'erminos son distintos entre s'i y, adem'as, distintos de los restantes t'erminos de la sucesi'on.
+
+\textbf{Teorema 1.2.} $\forall j (1 \leq j \leq n-1 \longrightarrow \delta(j))$. Es decir, la formula $\theta$ es un invariante del
+bucle principal. Esto es, que $\delta$ no cambia a lo largo de las transformaciones que sufre el tubo en el bucle principal.
+
+La demostraci'on, por inducci'on d'ebil sobre $j$, es, sea $\sigma \in  T^{0}$ tal que $|A_{\sigma,n}| = n$. Entonces
+la m'olecula $\sigma$ codifica una permutaci'on de orden $n$. Se tiene que $\sigma \in T_{(\sigma)_{1}}^{1}$ y
+$\forall r (2 \leq r \leq n \longrightarrow (\sigma)_{r} \neq (\sigma)_{1})$.
 
 \subsection{Problema del camino hamiltoniano en versi'on dirigida sin nodos distinguidos}
 
@@ -330,7 +372,7 @@ siguiente forma:
 Para poder realizar la verificaci'on formal se va considerar la siguiente f'ormula:
 
 \begin{equation*}
-  \theta(i) \equiv \forall \sigma \in T_{i-1} \forall r (1 \leq r \leq i \to ((\sigma)_{r},(\sigma)_{r+1}) \in E)
+  \theta(i) \equiv \forall \sigma \in T_{i-1} \forall r (1 \leq r \leq i \longrightarrow ((\sigma)_{r},(\sigma)_{r+1}) \in E)
 \end{equation*}
 
 Esta f'ormula, $\theta(i)$, viene a decir que para toda molecula $\sigma$ del tubo $T_{i-1}$ se verifica que
@@ -339,7 +381,7 @@ $\sigma_{i}$ es un camino del grafo $G$.
 A continuaci'on, se van a exponer una serie de teoremas con los que se pretende realizar la verificaci'on formal,
 tomando el algoritmo que se ha reescrito en este apartado.
 
-\textbf{Teorema 2.1.} $\forall i (2 \leq i \leq n \to \theta(i))$. Es decir, la f'ormula $\theta$ es un invariante del
+\textbf{Teorema 2.1.} $\forall i (2 \leq i \leq n \longrightarrow \theta(i))$. Es decir, la f'ormula $\theta$ es un invariante del
 bucle principal.
 
 La demostraci'on, por inducci'on d'ebil sobre $i$ es: sea $\sigma \in T_{1}$. Puesto que
@@ -349,31 +391,31 @@ Sea $i$ tal que $2 \leq i < n$ y supongamos cierto el resultado para $i$.
 
 Teniendo presente que $T_{i} = quitar(T_{i-1}, {jp_{i+1}k : (j,k) \notin E})$, resulta que
 $\sigma \in T_{i-1}$ y $((\sigma)_{i},(\sigma)_{i+1}) \in E$. De la hipotesis de inducci'on se deduce que
-$\forall r (1 \leq r < i \to ((\sigma)_{r},(\sigma)_{r+1}) \in E)$. Por tanto, $\sigma_{i+1}$ es un camino del grafo $G$.
+$\forall r (1 \leq r < i \longrightarrow ((\sigma)_{r},(\sigma)_{r+1}) \in E)$. Por tanto, $\sigma_{i+1}$ es un camino del grafo $G$.
 
 \textbf{Corolario 2.1.} \textit{(Correci'on del programa) Toda mol'ecula del tubo de salida codifica un camino hamiltoniano
 del grafo G}.
 
 La demostraci'on es, sea $\sigma \in T_{n-1}$. Como la f'ormula $\theta(n)$ es verdadera resulta que
-$\forall r (1 \leq r < n \to ((\sigma)_{r},(\sigma)_{r+1}) \in E)$. Por tanto, $\sigma_{n}$ es un camino de $G$.
+$\forall r (1 \leq r < n \longrightarrow ((\sigma)_{r},(\sigma)_{r+1}) \in E)$. Por tanto, $\sigma_{n}$ es un camino de $G$.
 Teniendo presente que la mol'ecula $\sigma$ codifica una permutaci'on de orden $n$, concluimor que $\sigma$ codifica
 un camino hamiltoniano del grafo $G$.
 
 Para establecer la completitud del programa molecular diseñado, consideremos la siguiente f'ormula:
 
 \begin{equation*}
-  \delta(i) \equiv \forall \sigma \in T_{0} ([\forall r (1 \leq r < n \to ((\sigma)_{r},(\sigma)_{r+1})
-   \in E)] \to \sigma \in T_{i-1})
+  \delta(i) \equiv \forall \sigma \in T_{0} ([\forall r (1 \leq r < n \longrightarrow ((\sigma)_{r},(\sigma)_{r+1})
+   \in E)] \longrightarrow \sigma \in T_{i-1})
 \end{equation*}
 
 Es decir, la formula $\delta(i)$ expresa que toda molecula del tubo inicial que codifica un camino hamiltoniano
 de $G$ pertenece al tubo $T_{i-1}$.
 
-\textbf{Teorema 2.2.} $\forall i (2 \leq i \leq n \to \delta(i))$. Es decir, la f'ormula $\delta$ es un invariante del
+\textbf{Teorema 2.2.} $\forall i (2 \leq i \leq n \longrightarrow \delta(i))$. Es decir, la f'ormula $\delta$ es un invariante del
 bucle principal.
 
 La demostraci'on, por inducci'on d'ebil sobre $i$ es: sea $\sigma \in T_{0}$ tal que $\sigma$ codifica un camino
-hamiltoniano de $G$. Entonces $\forall r (1 \leq r \leq n \to ((\sigma)_{r},(\sigma)_{r+1}) \in E)$. Luego,
+hamiltoniano de $G$. Entonces $\forall r (1 \leq r \leq n \longrightarrow ((\sigma)_{r},(\sigma)_{r+1}) \in E)$. Luego,
 $\sigma \in quitar(T_{0}, \{jp_{2}k : (j,k) \notin E\}) = T_{1}$.
 
 Sea $i$ tal que $2 \leq i < n$ y supongamos cierto el resultado para $i$.
