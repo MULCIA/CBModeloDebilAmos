@@ -45,6 +45,9 @@ Algunos ejemplos de operaciones son:
 
 # Problema de la generación de permutaciones
 
+- Permutación: <div style="text-align:center"><img width="150" height="150" src="./images/permutaciones.jpeg"/></div>
+- Problema: _dado un numero natural n mayor o igual que 2, generar todas las permutaciones de orden n_.
+
 ---
 
 # Diseño molecular
