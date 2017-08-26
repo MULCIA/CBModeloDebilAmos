@@ -57,6 +57,8 @@ Algunos ejemplos de operaciones son:
 
 # Problema del camino hamiltoniano
 
+<div style="text-align:center"><img width="400" height="400" src="./images/hamiltoniano.png"/></div>
+
 ---
 
 # Diseño molecular
