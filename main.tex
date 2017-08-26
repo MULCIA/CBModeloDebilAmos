@@ -351,7 +351,7 @@ Teniendo presente que $T_{i} = quitar(T_{i-1}, {jp_{i+1}k : (j,k) \notin E})$, r
 $\sigma \in T_{i-1}$ y $((\sigma)_{i},(\sigma)_{i+1}) \in E$. De la hipotesis de inducci'on se deduce que
 $\forall r (1 \leq r < i \to ((\sigma)_{r},(\sigma)_{r+1}) \in E)$. Por tanto, $\sigma_{i+1}$ es un camino del grafo $G$.
 
-\textbf{Corolario 6.6.} \textit{(Correci'on del programa) Toda mol'ecula del tubo de salida codifica un camino hamiltoniano
+\textbf{Corolario 2.1.} \textit{(Correci'on del programa) Toda mol'ecula del tubo de salida codifica un camino hamiltoniano
 del grafo G}.
 
 La demostraci'on es, sea $\sigma \in T_{n-1}$. Como la f'ormula $\theta(n)$ es verdadera resulta que
@@ -365,6 +365,27 @@ Para establecer la completitud del programa molecular diseñado, consideremos la
   \delta(i) \equiv \forall \sigma \in T_{0} ([\forall r (1 \leq r < n \to ((\sigma)_{r},(\sigma)_{r+1})
    \in E)] \to \sigma \in T_{i-1})
 \end{equation*}
+
+Es decir, la formula $\delta(i)$ expresa que toda molecula del tubo inicial que codifica un camino hamiltoniano
+de $G$ pertenece al tubo $T_{i-1}$.
+
+\textbf{Teorema 2.2.} $\forall i (2 \leq i \leq n \to \delta(i))$. Es decir, la f'ormula $\delta$ es un invariante del
+bucle principal.
+
+La demostraci'on, por inducci'on d'ebil sobre $i$ es: sea $\sigma \in T_{0}$ tal que $\sigma$ codifica un camino
+hamiltoniano de $G$. Entonces $\forall r (1 \leq r \leq n \to ((\sigma)_{r},(\sigma)_{r+1}) \in E)$. Luego,
+$\sigma \in quitar(T_{0}, \{jp_{2}k : (j,k) \notin E\}) = T_{1}$.
+
+Sea $i$ tal que $2 \leq i < n$ y supongamos cierto el resultado para $i$.
+
+Sea $\sigma \in T_{0}$ talq ue $\sigma$ codifica un camino hamiltoniano de $G$. Por hipotesis de inducci'on se tiene que
+$\sigma \in T_{i-1}$. Luego, $\sigma \in quitar(T_{i-1},\{jp_{i+1}k : (j,k) \notin E\}) = T_{i}$.
+
+\textbf{Corolario 2.2.} \textit{(Completitud del programa) Toda mol'ecula del tubo de ensayo inicial codifica un camino
+ hamiltoniano de G, est'a en el tubo de salida}.
+
+Para la demostraci'on basta tener presente que la f'ormula $\delta(n)$ es verdadera y que el tubo de salida del
+programa es $T_{n-1}$.
 
 % bibliography
 \printbibliography
