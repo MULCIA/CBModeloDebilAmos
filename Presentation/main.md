@@ -77,6 +77,14 @@ DEVOLVER T0
 
 # Diseño molecular
 
+- Alfabeto `(pi,cj)` para todo `i,j` entre `[1,n]`.
+- Dado un tubo de entrada `T0` que contiene todas las posibles sucesiones:
+```
+PARA i = 1 hasta n - 1 HACER:
+    T0 = quitar(T0, {})
+DEVOLVER seleccionar(T0)
+```
+
 ---
 
 # Verificación formal
