@@ -51,9 +51,9 @@
   % abstract
   \bf{Abstract. }\rm
     \emph{En el presente trabajo se pretende estudiar el dise'no y la verificaci'on formal
-    de dos programas moleculares en el modelo d'ebil de Amos que resuelven el problema de la generaci'on
+    de dos programas moleculares en el modelo d'ebil de Amos, que resuelven el problema de la generaci'on
     de permutaciones; y el problema del camino hamiltoniano en su versi'on dirigida y sin
-    nodos distinguidos. En concreto, se centra en reescribir, as'i como, completar algunos detalles
+    nodos distinguidos. En concreto, el presente trabajo se centra en reescribir, as'i como, completar algunos detalles
     de las demostraciones, que se encuentran el trabajo original \cite{Mario-deJesus}.
     El desarrollo de este trabajo tiene como objetivo ser entregado como trabajo final de la asignatura de
     Computaci'on Bioinspirada.}
@@ -76,10 +76,10 @@ En la propia d'ecada de los cincuenta ya se introdujo el concepto te'orico de co
 En los ordenadores convencionales la paralelizaci'on y la miniturizaci'on son un objetivo importante, y la
 computaci'on molecular puede suponer un paso m'as en este sentido.
 
-Sobre todo, a partir de que en la d'ecada de los ochenta cuando se demostr'o la existencia un l'imite en la potencia
-de c'alculo y en la miniturizaci'on de los componentes electr'onicos empleados en los ordenadores convencionales.
+Sobre todo, a partir de que en la d'ecada de los ochenta, cuando se demostr'o la existencia de un l'imite en la potencia
+de c'alculo y, tambi'en, en la miniturizaci'on de los componentes electr'onicos empleados en los ordenadores convencionales.
 
-Por 'ultimo se enumeran las principales ventajas del uso de la computaci'on molecular:
+Por 'ultimo, se enumeran las principales ventajas del uso de la computaci'on molecular:
 
 \begin{itemize}
 	\item Sustituci'on de la luz por reacciones qu'imicas, lo que implica un ahorro del consumo energ'etico.
@@ -87,7 +87,7 @@ Por 'ultimo se enumeran las principales ventajas del uso de la computaci'on mole
     en el mismo espacio que un procesador convencional.
 	\item Se estima que los interruptores moleculares pueden aumentar cien mil millones de veces la capacidad
     de procesamiento respecto a los ordenadores convencionales.
-	\item Se estima que se podr'ian reproducir la capacidad de cien ordenadores en el tama'no de un grano de sal fina.
+	\item Se estima que se podr'ia reproducir la capacidad de cien ordenadores en el tama'no de un grano de sal fina.
 \end{itemize}
 
 \section{Modelo d'ebil de Amos}
@@ -98,7 +98,7 @@ en el documento original del profesor del departamento de Ciencias de la Computa
 de Sevilla, Mario de Jes'us P'erez Jim'enez \cite{Mario-deJesus}.
 
 El Modelo d'ebil de Amos consiste en modelo de computaci'on basada en ADN, esto es, que utiliza como sustrato
-computacional el ADN y en el cual se realizan filtrados sobre el sustrato anterior. En este caso, no existe
+computacional el ADN, y en el cual se realizan filtrados sobre el sustrato anterior. En este caso, no existe
 memoria de acceso aleatorio como en la computaci'on cl'asica. Para almacenar el sustrato, al igual que en otros
 modelos de computaci'on molecular, se utiliza un tubo de ensayo que contendr'a la muestra.
 
@@ -156,7 +156,7 @@ respectivamente la posici'on $i$-'esima en la permutaci'on y el n'umero \textit{
 
 A continuaci'on, se necesita definir el tubo de entrada, $T_{0}$, para poder comenzar el experimento, es decir,
 aplicar las operaciones abstractas de la secci'on anterior seg'un un determinado algoritmo. En este caso,
-use trata de un multiconjunto de entrada con un n'umero finito de moleculas y que codifican todas las
+se trata de un multiconjunto de entrada con un n'umero finito de mol'eculas y que codifican todas las
 posibles sucesiones para una longitud \textit{n}. Formalmente ser'ia:
 
 \begin{equation*}
@@ -273,7 +273,7 @@ orden n}.
 La demostraci'on es, sea $\sigma \in T^{n-1}$. Como la f'ormula $\theta(n-1)$ es verdadera resulta que
 $|A_{\sigma,n-1}| = n - 1 \land \forall r (n - 1 + 1 \leq r \leq n \longrightarrow (\sigma)_{r} \notin A_{\sigma,n-1})$.
 Como $A_{\sigma,n} = A_{\sigma,n-1} \cup \{(\sigma)_{n}\}$, concluimos que $|A_{\sigma,n}| = n$. Por tanto, la mol'ecula
-$\sigma$ codifica una permutaci'on de orden $n$.
+$\sigma$ codifica una permutaci'on de orden $n$.x
 
 Para establecer la completitud del programa, se va a considerar la siguiente f'ormula:
 
