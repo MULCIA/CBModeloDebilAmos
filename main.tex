@@ -249,23 +249,56 @@ tomando el algoritmo que se ha reescrito en este apartado.
 \textbf{Teorema 1.1.} $\forall j (1 \leq j \leq n-1 \longrightarrow \theta(j))$. Es decir, la formula $\theta$ es un invariante del
 bucle principal. Esto es, que $\theta$ no cambia a lo largo de las transformaciones que sufre el tubo en el bucle principal.
 
-La demostraci'on, por inducci'on d'ebil sobre $j$, es: sea $\sigma \in T^{1}$. Existe $x \in \{1,...,n\}$ tal que
+Dicho de otro modo, para todo valor $j$, comprendido entre $1$ y $n-1$ ambos inclusive, se cumple $\theta(j)$, por tanto, $\theta(j)$
+no var'ia a lo largo de la ejecuci'on del algoritmo.
+
+Se va a realizar la demostraci'on por inducci'on d'ebil sobre $j$, y esta es:
+
+En primer lugar, se tiene que demostrar para $j = 1$. Sea $\sigma \in T^{1}$. Existe $x \in \{1,...,n\}$ tal que
 $\sigma \in \bar{T}_{x}^{1} = quitar(T_{x}^{1}, \{p_{1}r : r \neq x\} \cup \{p_{k}x : 2 \leq k \leq n\})$.
 
 Entonces $A_{\sigma,1} = \{(\sigma)_{1}\} = \{x\}$, es decir, $|A_{\sigma,1}| = 1$. Ademas, si $2 \leq k \leq n$, entonces
 $\sigma \in \bar{T}_{x}^{1} \Longrightarrow (\sigma)_{1} = x \land (\sigma)_{k} \neq x \Longrightarrow (\sigma)_{k}
- \notin A_{\sigma,i}$
+ \notin A_{\sigma,1}$
 
-Sea $j < n - 1 (j \geq 1)$ y supongamos que el resultado es cierto para $j$. Sea $\sigma \in T^{j+1}$. Sea
-$x \in \{1,...,n\}$ tal que $\sigma \in \bar{T}_{x}^{j+1} = quitar()$.
+Esto 'ultimo quiere decir, que $\sigma$ existe en el tubo resultado de realizar la eliminaci'on de los elementos que cumplen
+la condici'on descrita previamente, que llamaremos tubo complementario. Por tanto, se tiene que el conjunto de valores $A_{\sigma,1}$
+contiene el elemento $x$ y ese elemento no est'a en la posiciones siguientes en el resto de codificaciones de $\sigma$.
 
-Entonces, se verifica que $\sigma ...$.
+A continuaci'on, suponemos cierto para $j$, y tenemos que $j < n - 1 (j \geq 1)$. Se va a demostrar para $j+1$.
 
-De la hipotesis de inducci'on se tiene que $|A_{\sigma,j}| = ...$.
+Sea $\sigma \in T^{j+1}$. Y sea $x \in \{1,...,n\}$ tal que
 
-Teniendo presente ...
+\begin{equation*}
+    \sigma \in \bar{T}_{x}^{j+1} = quitar(T_{x}^{j+1}, \{p_{j+1}r : r \neq x\} \cup \{p_{k}x : j + 2 \leq k \leq n\})
+\end{equation*}
 
-Finalmente... Por tanto, ...
+Entonces, se verifica que
+
+\begin{equation*}
+    \sigma \in T_{x}^{j+1} = T_{j} \land (\simga)_{j+1} = x \land \forall k (j + 2 \leq k \leq n \longrightarrow (\sigma)_{k} \neq x)
+\end{equation*}
+
+De la hipotesis de inducci'on se tiene que
+
+\begin{equation*}
+    |A_{\sigma,j}| = j \land \forall r (j + 1 \leq r \leq n \longrightarrow (\sigma)_{k} \neq x)
+\end{equation*}
+
+Teniendo presente que
+
+\begin{equation*}
+    A_{\sigma,j+1} = A_{\sigma,j} \cup \{(\sigma)_{j+1}\}
+\end{equation*}
+
+Finalmente si $j + 2 \leq k \leq n $, entonces $(\sigma)_{k} \notin A_{\sigma,j}$ y $(\sigma)_{k} \neq x = (\sigma)_{j+1}$.
+Por tanto, se tiene que
+
+\begin{equation*}
+    (\sigma)_{k} \notin A_{\sigma,j+1}
+\end{equation*}
+
+
 
 \textbf{Corolario 1.1.} \textit{(Correci'on del programa) Toda mol'ecula del tubo de salida codifica una permutaci'on de
 orden n}.
