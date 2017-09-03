@@ -16,7 +16,7 @@ Computación molecular sin memoria basada en ADN
 
 # Computación Molecular
 
-- Tubo de ensayo contiene una solución con cadenas simplres de ADN (oligos).
+- Tubo de ensayo contiene una solución con cadenas simples de ADN (oligos).
 - Automatización de procesos sobre los tubos que realizan operaciones abstractas, tales como, medir, sumar, etc.
 - Necesario un modelado y representación del problema adecuado para este tipo de computación.
 
