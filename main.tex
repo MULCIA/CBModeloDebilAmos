@@ -31,6 +31,7 @@
            shorten <=2pt,
            shorten >=2pt,}
 }
+\setlength{\parskip}{\baselineskip}
 \usepackage[style=numeric-comp,backend=bibtex]{biblatex}
 \bibliography{refs.bib}
 
@@ -97,7 +98,7 @@ de la computaci'on molecular, as'i como, los distintos modelos previos a este, l
 en el documento original del profesor del departamento de Ciencias de la Computaci'on de la Universidad
 de Sevilla, Mario de Jes'us P'erez Jim'enez \cite{Mario-deJesus}.
 
-El Modelo d'ebil de Amos consiste en modelo de computaci'on basada en ADN, esto es, que utiliza como sustrato
+El Modelo d'ebil de Amos consiste en un modelo de computaci'on basada en ADN, esto es, que utiliza como sustrato
 computacional el ADN, y en el cual se realizan filtrados sobre el sustrato anterior. En este caso, no existe
 memoria de acceso aleatorio como en la computaci'on cl'asica. Para almacenar el sustrato, al igual que en otros
 modelos de computaci'on molecular, se utiliza un tubo de ensayo que contendr'a la muestra.
@@ -126,13 +127,13 @@ Estas operaciones ser'an instrucciones moleculares primitivas del modelo d'ebil.
 en este modelo la 'unica operaci'on molecular que implementa paralelismo masico es \textit{quitar}.
 
 El primer problema, el de la generaci'on de permitaciones, ser'a abordado previo al problema del camino hamiltoniano
-, ya que, ser'a necesario para su resoluci'on.
+, ya que, ser'a necesario para su posterior resoluci'on.
 
 \subsection{Problema de la generaci'on de permutaciones}
 
 En esta secci'on se muestra como abordar desde el punto de vista de la computaci'on molecular la resolubilidad
-del problema de la generaci'on de permutaciones. Antes, se define en qu'e consiste una permutaci'on para a
-continuaci'on abordar el problema de la generaci'on de las mismas.
+del problema de la generaci'on de permutaciones. Antes, se define en qu'e consiste una permutaci'on para, a
+continuaci'on, abordar el problema.
 
 Una permutaci'on la definimos como \textit{dado un numero natural, $n \geq 1$, una permutaci'on de orden n es una
 aplicaci'on biyectiva del conjunto finito \{1,...,n\} en s'i mismo}.
@@ -276,7 +277,7 @@ Sea $\sigma \in T^{j+1}$. Y sea $x \in \{1,...,n\}$ tal que
 Entonces, se verifica que
 
 \begin{equation*}
-    \sigma \in T_{x}^{j+1} = T_{j} \land (\simga)_{j+1} = x \land \forall k (j + 2 \leq k \leq n \longrightarrow (\sigma)_{k} \neq x)
+    \sigma \in T_{x}^{j+1} = T_{j} \land (\sigma)_{j+1} = x \land \forall k (j + 2 \leq k \leq n \longrightarrow (\sigma)_{k} \neq x)
 \end{equation*}
 
 De la hipotesis de inducci'on se tiene que
