@@ -74,11 +74,11 @@ Esta resolubilidad est'a relacionada con la potencia de c'alculo y la densisdad 
 ordenadores convencionales.
 
 En la propia d'ecada de los cincuenta ya se introdujo el concepto te'orico de computaci'on a nivel molecular.
-En los ordenadores convencionales la paralelizaci'on y la miniturizaci'on son un objetivo importante, y la
+En los ordenadores convencionales la paralelizaci'on y la miniaturizaci'on son un objetivo importante, y la
 computaci'on molecular puede suponer un paso m'as en este sentido.
 
 Sobre todo, a partir de que en la d'ecada de los ochenta, cuando se demostr'o la existencia de un l'imite en la potencia
-de c'alculo y, tambi'en, en la miniturizaci'on de los componentes electr'onicos empleados en los ordenadores convencionales.
+de c'alculo y, tambi'en, en la miniaturizaci'on de los componentes electr'onicos empleados en los ordenadores convencionales.
 
 Por 'ultimo, se enumeran las principales ventajas del uso de la computaci'on molecular:
 
@@ -124,10 +124,10 @@ son las siguientes:
 \end{itemize}
 
 Estas operaciones ser'an instrucciones moleculares primitivas del modelo d'ebil. Adem'as, cabe destacar que
-en este modelo la 'unica operaci'on molecular que implementa paralelismo masico es \textit{quitar}.
+en este modelo la 'unica operaci'on molecular que implementa paralelismo masivo es \textit{quitar}.
 
-El primer problema, el de la generaci'on de permitaciones, ser'a abordado previo al problema del camino hamiltoniano
-, ya que, ser'a necesario para su posterior resoluci'on.
+El primer problema, el de la generaci'on de permutaciones, ser'a abordado previo al problema del camino hamiltoniano
+, ya que, ser'a necesario para el modelado y resoluci'on del segundo problema.
 
 \subsection{Problema de la generaci'on de permutaciones}
 
@@ -178,7 +178,7 @@ que contiene la codificaci'on de todas las posibles soluciones de longitud $ n $
             \forall r > 1 ( (\sigma)_{1} \neq (\sigma)_{r} )
         \end{equation*}
            Esto es, para todas las posiciones, $r$, mayores que 1, devolver todas aquellas codificaciones, tal que,
-           el n'umero que ocupa la posici'on $r$-'esima sea distinto de el n'umero de la primera posici'on.
+           el n'umero que ocupa la posici'on $r$-'esima sea distinto del n'umero de la primera posici'on.
      \item Un segundo filtro respecto del paso anterior donde se seleccionan las moleculas, $ \sigma $, tal que:
      \begin{equation*}
          \forall r > 2 ( (\sigma)_{1} \neq (\sigma)_{r} \land (\sigma)_{2} \neq (\sigma)_{r} )
@@ -418,8 +418,6 @@ El algoritmo ser'a el siguiente:
 
 La complejidad de este algoritmo es $O(n)$, es decir, tiene un orden de complejidad lineal.
 
-#TODO: Explicar el algoritmo
-
 \subsubsection{Verificaci'on formal del programa molecular}
 
 Para realizar la verificaci'on formal es necesario etiquetar cada uno de los tubos que se van a obtener
@@ -463,10 +461,10 @@ del grafo G}.
 
 La demostraci'on es, sea $\sigma \in T_{n-1}$. Como la f'ormula $\theta(n)$ es verdadera resulta que
 $\forall r (1 \leq r < n \longrightarrow ((\sigma)_{r},(\sigma)_{r+1}) \in E)$. Por tanto, $\sigma_{n}$ es un camino de $G$.
-Teniendo presente que la mol'ecula $\sigma$ codifica una permutaci'on de orden $n$, concluimor que $\sigma$ codifica
+Teniendo presente que la mol'ecula $\sigma$ codifica una permutaci'on de orden $n$, concluimos que $\sigma$ codifica
 un camino hamiltoniano del grafo $G$.
 
-Para establecer la completitud del programa molecular diseñado, consideremos la siguiente f'ormula:
+Para establecer la completitud del programa molecular dise'nado, consideremos la siguiente f'ormula:
 
 \begin{equation*}
   \delta(i) \equiv \forall \sigma \in T_{0} ([\forall r (1 \leq r < n \longrightarrow ((\sigma)_{r},(\sigma)_{r+1})
