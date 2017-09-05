@@ -67,6 +67,31 @@ DEVOLVER T0
 
 # Verificación formal
 
+- Se reescribe el código para enumerar los tubos:
+```
+PARA j = 1 hasta n - 1 HACER:
+    copiar(T0,{T1,...,Tn})
+    PARA i = 1 hasta n HACER:
+        quitar(Ti, {})
+    union({T1,...,Tn}, T0)
+DEVOLVER T0
+```
+
+---
+
+# Teorema
+
+- Se utiliza la siguiente fórmula:
+#TODO: poner imagen aquí.
+- Dicha fórmula representa que todo tubo, en cada iteración, codifica una sucesión correcta en longitud y términos.
+- Demostrar que la fórmula es invariante del bucle principal.
+
+---
+
+# Corolario
+
+
+
 ---
 
 # Problema del camino hamiltoniano
