@@ -54,43 +54,30 @@ Algunos ejemplos de operaciones son:
 
 - Alfabeto `(pi,cj)` para todo `i,j` entre `[1,n]`.
 - Dado un tubo de entrada `T0` que contiene todas las posibles sucesiones:
-```
-PARA j = 1 hasta n - 1 HACER:
-    copiar(T0,{T1,...,Tn})
-    PARA i = 1 hasta n HACER:
-        quitar(Ti, {})
-    union({T1,...,Tn}, T0)
-DEVOLVER T0
-```
+
+![](./images/prob1_1.png)
+
+---
+
+# Previo a la verificación formal
+
+- Buscar una fórmula que cumpla (p. corrección y completitud):
+    - Fórmula es verdadera antes de comenzar el bucle.
+    - Fórmula es invariante en dicho bucle (por inducción débil).
+- Reetiquetado.
+- Corrección del programa (Teorema + Corolario).
+- Completitud del programa (Teorema + Corolario).
+
 
 ---
 
 # Verificación formal
 
 - Se reescribe el código para enumerar los tubos:
-```
-PARA j = 1 hasta n - 1 HACER:
-    copiar(T0,{T1,...,Tn})
-    PARA i = 1 hasta n HACER:
-        quitar(Ti, {})
-    union({T1,...,Tn}, T0)
-DEVOLVER T0
-```
 
----
+![](./images/prob1_2.png)
 
-# Teorema
-
-- Se utiliza la siguiente fórmula:
-#TODO: poner imagen aquí.
-- Dicha fórmula representa que todo tubo, en cada iteración, codifica una sucesión correcta en longitud y términos.
-- Demostrar que la fórmula es invariante del bucle principal.
-
----
-
-# Corolario
-
-
+* _Ver documento_.
 
 ---
 
@@ -104,15 +91,18 @@ DEVOLVER T0
 
 - Alfabeto `(pi,cj)` para todo `i,j` entre `[1,n]`.
 - Dado un tubo de entrada `T0` que contiene todas las posibles sucesiones:
-```
-PARA i = 1 hasta n - 1 HACER:
-    T0 = quitar(T0, {})
-DEVOLVER seleccionar(T0)
-```
+
+![](./images/prob2_1.png)
 
 ---
 
 # Verificación formal
+
+- Se reescribe el código para enumerar los tubos:
+
+![](./images/prob2_2.png)
+
+* _Ver documento_.
 
 ---
 
