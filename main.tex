@@ -210,6 +210,30 @@ de entrada, es el siguiente:
 Este algoritmo presenta una complejidad $O(n^2)$, es decir, orden cuadr'atico en $n$. Por tanto, el n'umero de
 operaciones moleculares es $n^2$.
 
+\subsubsection{Metodolog'ia para verificar formalmente programas con bucle principal}
+
+En esta secci'on, se explica una metogolog'ia para verificar formalmente que un programa con  bucle
+principal satisface una propiedad.
+
+Se busca que la fórmula satisfaga las siguientes propiedades:
+
+\begin{itemize}
+    \item La f'ormila es verdadera antes de comenzar el bucle.
+    \item La f'ormula es invariante, es decir, que es verdadera tambi'en al finalizar el bucle.
+    \item La veracidad indica que satisface la propiedad requerida.
+\end{itemize}}
+
+Adem'as, se necesita probar la correcci'on y completitud.
+
+Con la demostraci'on de la correci'on se pretende demostrar las propiedades de una f'ormula, la cual modela
+el programa. Tal y como se describi'o previamente. Consiste en un teorema (invarianza) y un corolario (correci'on), donde se prueba
+que toda mol'ecula del tubo de salida codifica una valoraci'on que hace verdadera dicha f'ormula.
+
+Con la demostraci'on de la completitud se pretende demostrar las propiedaes de la f'ormula, la cual modela el
+programa. Tal y como se describi'o previamente. Consiste, tambi'en, en un teorema (invarianza) y un corolario (completitud), donde se prueba
+que toda mol'ecula del tubo de salida, y que codifica una valoraci'on que hace verdadera la f'ormula,
+aparecer'a en el tubo de salida.
+
 \subsubsection{Verificaci'on formal del programa molecular}
 
 Para realizar la verificaci'on formal es necesario etiquetar cada uno de los tubos que se van a obtener
