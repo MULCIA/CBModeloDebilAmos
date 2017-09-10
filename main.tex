@@ -301,13 +301,13 @@ Sea $\sigma \in T^{j+1}$. Y sea $x \in \{1,...,n\}$ tal que
 Entonces, se verifica que
 
 \begin{equation*}
-    \sigma \in T_{x}^{j+1} = T_{j} \land (\sigma)_{j+1} = x \land \forall k (j + 2 \leq k \leq n \longrightarrow (\sigma)_{k} \neq x)
+    \sigma \in T_{x}^{j+1} = T^{j} \land (\sigma)_{j+1} = x \land \forall k (j + 2 \leq k \leq n \longrightarrow (\sigma)_{k} \neq x)
 \end{equation*}
 
 De la hipotesis de inducci'on se tiene que
 
 \begin{equation*}
-    |A_{\sigma,j}| = j \land \forall r (j + 1 \leq r \leq n \longrightarrow (\sigma)_{k} \neq x)
+    |A_{\sigma,j}| = j \land \forall r (j + 1 \leq r \leq n \longrightarrow (\sigma)_{k} \notin A_{\sigma,j})
 \end{equation*}
 
 Teniendo presente que
@@ -315,6 +315,14 @@ Teniendo presente que
 \begin{equation*}
     A_{\sigma,j+1} = A_{\sigma,j} \cup \{(\sigma)_{j+1}\}
 \end{equation*}
+
+y
+
+\begin{equation*}
+    (\sigma)_{j+1} \notin A_{\sigma,j}
+\end{equation*}
+
+Resulta que $ |A_{\sigma,j+1}| = j + 1 $.
 
 Finalmente si $j + 2 \leq k \leq n $, entonces $(\sigma)_{k} \notin A_{\sigma,j}$ y $(\sigma)_{k} \neq x = (\sigma)_{j+1}$.
 Por tanto, se tiene que
@@ -359,7 +367,7 @@ Sea $j < n - 1 (j \geq 1)$ y supongamos que el resultado es cierto para j.
 Sea $\sigma \in T^{0}$ tal que $|A_{\sigma,n}| = n$. De la hip'otesis de inducci'on resulta que $\sigma \in T^{j}$. Luego
 
 \begin{equation*}
-  \sigma \in T^{j+1}
+  \sigma \in T^{j+1}_{(\sigma)_{j+1}}
 \end{equation*}
 
 y
@@ -476,7 +484,7 @@ $T_{1} = quitar(T_{0}, {jp_{2}k : (j,k) \notin E})$, se deduce que $((\sigma)_{1
 
 Sea $i$ tal que $2 \leq i < n$ y supongamos cierto el resultado para $i$.
 
-Teniendo presente que $T_{i} = quitar(T_{i-1}, {jp_{i+1}k : (j,k) \notin E})$, resulta que
+Sea $\sigma \in T^{i}$ y eniendo presente que $T_{i} = quitar(T_{i-1}, {jp_{i+1}k : (j,k) \notin E})$, resulta que
 $\sigma \in T_{i-1}$ y $((\sigma)_{i},(\sigma)_{i+1}) \in E$. De la hipotesis de inducci'on se deduce que
 $\forall r (1 \leq r < i \longrightarrow ((\sigma)_{r},(\sigma)_{r+1}) \in E)$. Por tanto, $\sigma_{i+1}$ es un camino del grafo $G$.
 
