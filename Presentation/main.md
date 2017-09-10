@@ -109,5 +109,3 @@ Algunos ejemplos de operaciones son:
 # Gracias
 
 <div style="text-align:center"><img width="300" height="300" src="http://ahoragetafe.es/wp-content/uploads/2016/11/descarga-1.jpg" /></div>
-
----
