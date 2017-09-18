@@ -215,10 +215,10 @@ operaciones moleculares es $n^2$.
 En esta secci'on, se explica una metogolog'ia para verificar formalmente que un programa con  bucle
 principal satisface una propiedad.
 
-Se representa el bucle principal como una f'ormila y se busca que dicha f'ormula satisfaga las siguientes propiedades:
+Se representa el bucle principal como una f'ormula y se busca que dicha f'ormula satisfaga las siguientes propiedades:
 
 \begin{itemize}
-    \item La f'ormila es verdadera antes de comenzar el bucle.
+    \item La f'ormula es verdadera antes de comenzar el bucle.
     \item La f'ormula es invariante, es decir, que es verdadera tambi'en al finalizar el bucle.
     \item La veracidad indica que satisface la propiedad requerida.
 \end{itemize}}
@@ -255,7 +255,7 @@ siguiente forma:
 Antes de continuar, hay que aclarar la notaci'on a emplear a partir de aqu'i. $A_{\sigma,j}$ ser'a el conjunto
 $\{\sigma_{1},...,\sigma_{j}\}$, es decir, n'umero en cada posici'on $j$-'esima, para $(1 \leq j \leq n)$, en cada
 $\sigma \in T_{0}$. Esto es, un conjunto que contiene todos los n'umeros que contienen una determinada codificaci'on, $\sigma$,
-desde 1 hasta la posici'on j en cada caso.
+desde 1 hasta la posici'on j en cada caso, y estos, son diferentes entre s'i.
 
 Esta notaci'on que se acaba de describir ser'a necesaria para la correci'on formal del programa que se
 acaba de reescribir, y que se utiliza en la siguiente formula:
@@ -397,11 +397,18 @@ El problema del camino hamiltoniano en su versi'on dirigida y sin nodos distingu
 dado un grafo dirigido, determinar si existe un camino simple que pasa por todos los nodos del grafo. O lo
 que es lo mismo, si el grafo posee un ciclo hamiltoniano.
 
+Dicho de otro modo, un camino hamiltoniano es una sucesi'on ordenada de nodos donde estos
+no se repiten y, adem'as, existen aristas que permiten llegar de uno a otro nodo de dicha sucesi'on.
+
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{hamiltoniano}
 \caption{Ejemplo de camino hamiltoniano sobre un grafo.}
 \end{figure}
+
+Por tanto, dicho lo anterior, este problema presenta una conexi'on respeceto del problema anterior,
+el problema de la generaci'on de permutaciones. Ya que, resolver este problema equivale a considerar un camino como
+una sucesi'on de permutaciones, siempre y cuando, sea un camino v'alido del grafo $G$.
 
 \subsubsection{Dise'no del programa molecular}
 
